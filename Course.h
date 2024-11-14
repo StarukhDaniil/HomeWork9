@@ -2,6 +2,8 @@
 #include "Student.h"
 #include <vector>
 #include <memory>
+#include <set>
+#include <algorithm>
 
 class Course {
 private:
@@ -16,6 +18,13 @@ public:
 	}
 	std::vector<std::shared_ptr<Student>>& getStudents() {
 		return students;
+	}
+	std::set<std::string> getGroups() {
+		std::set<std::string> groups;
+		std::for_each(students.begin(), students.end(), [&groups](std::shared_ptr<Student> student) {
+			groups.insert(student.get()->getGroupName());
+		});
+		return groups;
 	}
 
 	Course(std::string courseName) {
