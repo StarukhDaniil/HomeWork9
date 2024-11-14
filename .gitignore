@@ -1,0 +1,4 @@
+*.bat
+.vs/
+out/
+build/
