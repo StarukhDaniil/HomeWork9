@@ -1,11 +1,13 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include <memory>
 
 class Student {
 private:
 	std::string studentName;
 	std::string groupName;
+	std::shared_ptr<Course> course;
 public:
 	void setStudentName(std::string studentName) {
 		this->studentName = studentName;
@@ -21,6 +23,14 @@ public:
 
 	std::string getGroupName() {
 		return groupName;
+	}
+
+	void setCourse(std::shared_ptr<Course> course) {
+		this->course = course;
+	}
+
+	std::shared_ptr<Course>& getCourse() {
+		return course;
 	}
 
 	Student(std::string studentName, std::string groupName) {
