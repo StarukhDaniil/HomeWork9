@@ -10,7 +10,7 @@ private:
 	std::string courseName;
 	std::vector<std::weak_ptr<Student>> students;
 public:
-	void setCourseName(std::string courseName) {
+	void setCourseName(const std::string& courseName) {
 		this->courseName = courseName;
 	}
 
@@ -30,7 +30,7 @@ public:
 		return groups;
 	}
 
-	Course(std::string courseName) {
+	Course(const std::string& courseName) {
 		this->courseName = courseName;
 	}
 	Course() = default;
